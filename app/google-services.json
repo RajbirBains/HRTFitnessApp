@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366877358571",
+    "project_id": "hrtfitnessapp",
+    "storage_bucket": "hrtfitnessapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366877358571:android:1bce4e39f3c1bc9c6dc1ae",
+        "android_client_info": {
+          "package_name": "com.example.hrtfitnessapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366877358571-2ht11mr92r68bevhales3mmt1afs1mfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgmsJw1M5tBpR_lBZ-e6BFdjly5LO5_D8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366877358571-2ht11mr92r68bevhales3mmt1afs1mfb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
