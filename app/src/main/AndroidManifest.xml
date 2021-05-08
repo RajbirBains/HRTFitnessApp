@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HRTFitnessApp">
-        <activity android:name=".SurveyStart"> </activity>
+        <activity
+            android:name=".NavScreen"
+            android:label="@string/title_activity_nav_screen"
+            android:theme="@style/Theme.HRTFitnessApp.NoActionBar"></activity>
+        <activity android:name=".PostSurvey" />
+        <activity android:name=".SurveyStart" />
         <activity android:name=".SurveyQuestion4" />
         <activity android:name=".SurveyQuestion3" />
         <activity android:name=".SurveyQuestion2" />
