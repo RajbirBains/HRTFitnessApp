@@ -9,10 +9,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="survey_description">This survey will give us a better understanding of your character and lifestyle.
-        With this we will recommend training routines that might fit you the best</string>
+    <string name="survey_description1">This survey will give us a better understanding of your character and lifestyle</string>
+    <string name="survey_description2">With this we will recommend training routines that might fit you the best</string>
     <string name="survey_question_1"> Are the majority of your workouts:</string>
     <string name="survey_question_1a"> compound</string>
     <string name="survey_question_1b"> isolation</string>
     <string name="survey_question_1c"> cardio</string>
+    <string name="survey_question_1d"> plyometrics</string>
 </resources>

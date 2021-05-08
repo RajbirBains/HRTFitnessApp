@@ -1,16 +1,14 @@
 package com.example.hrtfitnessapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.content.Intent;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,39 +16,44 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
-    private EditText editTextEmail, editTextPassword;
-    private Button signIn;
+public class SignUpActivity extends AppCompatActivity {
+    private Button SignUpButton;
     private FirebaseAuth mAuth;
+    private EditText editTextEmail, editTextPassword, editTextPasswordConfirmation, editTextUserName,confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_up);
 
         //Email input field
-        editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        editTextEmail = (EditText) findViewById(R.id.email);
 
         //Password input field
-        editTextPassword = (EditText) findViewById(R.id.editTextTextPassword);
+        editTextPassword = (EditText) findViewById(R.id.password);
 
+        //Username input field
+        editTextUserName = (EditText) findViewById(R.id.Name);
 
+        editTextPasswordConfirmation = (EditText) findViewById(R.id.confirmpassword);
+        //Register button
 
-        //Sign in button
-        signIn = findViewById(R.id.logInButton);
-        signIn.setOnClickListener(new View.OnClickListener() {
+        mAuth = FirebaseAuth.getInstance();
+        SignUpButton = (Button) findViewById(R.id.SignUpButton);
+
+        SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //Return to the Bingo Game UI
+            public void onClick(View v) {
                 signInUser();
             }
         });
+
     }
 
-    //Method use for user to sign into their account
     private void signInUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+        String confirmpassword = editTextPassword.getText().toString().trim();
 
         //Check for email input
         if (email.isEmpty()) {
@@ -76,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
         //Check password length
         if (password.length() < 6) {
             editTextPassword.setError("Min password length should be 6 characters");
+            editTextPassword.requestFocus();
+        }
+        if (confirmpassword.equals(password)){
+            editTextPassword.setError("Your passwords doesnt match");
             editTextPassword.requestFocus();
         }
 
@@ -115,10 +122,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //Show error
                 else{
-                   // Toast.makeText(UserAuthentication.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
+                    // Toast.makeText(UserAuthentication.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
     }
+
+    public void openLoginActivity(){
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+
 }
