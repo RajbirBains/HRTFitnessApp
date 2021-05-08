@@ -27,15 +27,15 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         //Email input field
-        editTextEmail = (EditText) findViewById(R.id.email);
+        editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress2);
 
         //Password input field
-        editTextPassword = (EditText) findViewById(R.id.password);
+        editTextPassword = (EditText) findViewById(R.id.editTextTextPassword2);
 
         //Username input field
-        editTextUserName = (EditText) findViewById(R.id.Name);
+        editTextUserName = (EditText) findViewById(R.id.editTextTextPersonName);
 
-        editTextPasswordConfirmation = (EditText) findViewById(R.id.confirmpassword);
+        editTextPasswordConfirmation = (EditText) findViewById(R.id.editTextTextConfirmPassword);
         //Register button
 
         mAuth = FirebaseAuth.getInstance();
@@ -44,7 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
         SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signInUser();
+                openLoginActivity();
+                //signInUser();
             }
         });
 
