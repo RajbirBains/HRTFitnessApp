@@ -9,14 +9,8 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="survey_description1">This survey will give us a better understanding of your character and lifestyle</string>
-    <string name="survey_description2">With this we will recommend training routines that might fit you the best</string>
-    <string name="survey_question_1"> Are the majority of your workouts:</string>
-    <string name="survey_question_1a"> compound</string>
-    <string name="survey_question_1b"> isolation</string>
-    <string name="survey_question_1c"> cardio</string>
-    <string name="survey_question_1d"> plyometrics</string>
     <string name="title_activity_main">MainActivity</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -37,4 +31,38 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="survey_description1">This survey will give us a better understanding of your character and lifestyle</string>
+    <string name="survey_description2">With this we will recommend training routines that might fit you the best</string>
+
+    <string name="survey_question_1_header"> Question 1</string>
+    <string name="survey_question_1"> Are the majority of your workouts:</string>
+    <string name="survey_question_1a"> compound</string>
+    <string name="survey_question_1b"> isolation</string>
+    <string name="survey_question_1c"> cardio</string>
+    <string name="survey_question_1d"> plyometrics</string>
+
+    <string name="survey_question_2_header"> Question 2</string>
+    <string name="survey_question_2">  How frequently are you training:</string>
+    <string name="survey_question_2a"> 0 – 1 times a week</string>
+    <string name="survey_question_2b"> 2 – 3 times a week</string>
+    <string name="survey_question_2c"> 4 – 5 times a week</string>
+    <string name="survey_question_2d"> 6 or more times a week</string>
+
+    <string name="survey_question_3_header"> Question 3</string>
+    <string name="survey_question_3"> How much cardiovascular activity do you partake in:</string>
+    <string name="survey_question_3a"> none at all</string>
+    <string name="survey_question_3b"> moderate</string>
+    <string name="survey_question_3c"> daily/intense</string>
+
+    <string name="survey_question_4_header"> Question 4</string>
+    <string name="survey_question_4">  Which best describes your fitness goals:</string>
+    <string name="survey_question_4a"> aesthetics</string>
+    <string name="survey_question_4b"> functional strength </string>
+    <string name="survey_question_4c"> explosive/agile abilities</string>
+    <string name="survey_question_4d"> endurance trainings</string>
+
+    <string name="survey_next_button"> Next</string>
+    <string name="survey_prev_button"> Prev</string>
+
 </resources>

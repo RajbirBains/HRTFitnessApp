@@ -7,7 +7,7 @@
     tools:context=".SurveyQuestion1">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnNextQ1"
         android:layout_width="103dp"
         android:layout_height="51dp"
         android:layout_marginStart="292dp"
@@ -16,14 +16,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="60dp"
-        android:text="Next"
+        android:text="@string/survey_next_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnPrevQ1"
         android:layout_width="107dp"
         android:layout_height="52dp"
         android:layout_marginStart="26dp"
@@ -32,7 +32,7 @@
         android:layout_marginEnd="278dp"
         android:layout_marginRight="278dp"
         android:layout_marginBottom="59dp"
-        android:text="Prev"
+        android:text="@string/survey_prev_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_marginEnd="147dp"
         android:layout_marginRight="147dp"
         android:layout_marginBottom="665dp"
-        android:text="Question 1"
+        android:text="@string/survey_question_1_header"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,32 +74,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.ChipGroup
-        android:layout_width="130dp"
-        android:layout_height="222dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="220dp">
+        android:layout_width="153dp"
+        android:layout_height="305dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginRight="129dp"
+        android:layout_marginBottom="213dp"
+        app:chipSpacingVertical="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/survey_question_1a" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip7"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/survey_question_1b" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip8"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/survey_question_1c" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip9"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/survey_question_1d" />
     </com.google.android.material.chip.ChipGroup>

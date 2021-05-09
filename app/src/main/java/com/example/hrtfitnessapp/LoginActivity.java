@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -109,18 +110,19 @@ public class LoginActivity extends AppCompatActivity {
 //                        }
 
                         //Redirect to main menu
+                        //OpenSignUpActivity();
                         Intent it = new Intent();
-                        //it.setClass(UserAuthentication.this, MainMenu.class);
+                        it.setClass(LoginActivity.this, SurveyStart.class);
                         startActivity(it);
                     }
                     else{
                         user.sendEmailVerification();
-                        //Toast.makeText(UserAuthentication.this, "Please check your email to verify your account", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Please check your email to verify your account", Toast.LENGTH_LONG).show();
                     }
                 }
                 //Show error
                 else{
-                   // Toast.makeText(UserAuthentication.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
+                   Toast.makeText(LoginActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
                 }
             }
         });
