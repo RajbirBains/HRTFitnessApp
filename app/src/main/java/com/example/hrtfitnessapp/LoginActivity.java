@@ -34,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
         //Password input field
         editTextPassword = (EditText) findViewById(R.id.editTextTextPassword);
 
+        // Gets instance for firebase authentication (Needed to check credentials)
+        mAuth = FirebaseAuth.getInstance();
+
         signUpButton = (Button) findViewById(R.id.btnSignUp);
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
