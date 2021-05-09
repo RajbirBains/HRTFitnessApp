@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Return to the Bingo Game UI
                 signInUser();
             }
         });

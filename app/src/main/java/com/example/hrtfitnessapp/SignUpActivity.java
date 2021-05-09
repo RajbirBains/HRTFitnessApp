@@ -9,17 +9,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
-    private Button SignUpButton;
     private FirebaseAuth mAuth;
-    private EditText editTextEmail, editTextPassword, editTextPasswordConfirmation, editTextUserName,confirm;
+    private EditText editTextEmail, editTextPassword, editTextUserName, editTextConfirmPassword;
+    private Button signUpButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,112 +30,110 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         //Email input field
-        editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress2);
+        editTextEmail = (EditText) findViewById(R.id.EmailAddress);
 
         //Password input field
-        editTextPassword = (EditText) findViewById(R.id.editTextTextPassword2);
+        editTextPassword = (EditText) findViewById(R.id.Password);
 
         //Username input field
-        editTextUserName = (EditText) findViewById(R.id.editTextTextPersonName);
+        editTextUserName = (EditText) findViewById(R.id.PersonName);
 
-        editTextPasswordConfirmation = (EditText) findViewById(R.id.editTextTextConfirmPassword);
-        //Register button
-
+        editTextConfirmPassword = (EditText) findViewById(R.id.ConfirmPassword);
         mAuth = FirebaseAuth.getInstance();
-        SignUpButton = (Button) findViewById(R.id.SignUpButton);
-
-        SignUpButton.setOnClickListener(new View.OnClickListener() {
+        signUpButton = (Button) findViewById(R.id.SignUpButton);
+        signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openLoginActivity();
-                //signInUser();
+            public void onClick(View view) {
+                //openLoginActivity();
+                registerUser();
             }
         });
+        //This method create user data to store on firebase
 
+
+        ///The progress create new user
     }
-
-    private void signInUser() {
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-        String confirmpassword = editTextPassword.getText().toString().trim();
+        public void openLoginActivity () {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+    private void registerUser () {
+        final String EmailAddress = editTextEmail.getText().toString().trim();
+        String Password = editTextPassword.getText().toString().trim();
+        final String PersonName = editTextUserName.getText().toString().trim();
 
         //Check for email input
-        if (email.isEmpty()) {
+        if (EmailAddress.isEmpty()) {
             editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
             return;
         }
 
         //Check for valid form email
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(EmailAddress).matches()) {
             editTextEmail.setError("Please provide a valid email");
             editTextEmail.requestFocus();
             return;
         }
 
         //Check for password input
-        if (password.isEmpty()) {
+        if (Password.isEmpty()) {
             editTextPassword.setError("Password is required");
             editTextPassword.requestFocus();
             return;
         }
 
         //Check password length
-        if (password.length() < 6) {
+        if (Password.length() < 6) {
             editTextPassword.setError("Min password length should be 6 characters");
             editTextPassword.requestFocus();
-        }
-        if (confirmpassword.equals(password)){
-            editTextPassword.setError("Your passwords doesnt match");
-            editTextPassword.requestFocus();
+            return;
         }
 
-        //Begin sign in user
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                //When all credential input correctly
-                if(task.isSuccessful()){
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //Check username input
+        if (PersonName.isEmpty()) {
+            editTextUserName.setError("Username is required");
+            editTextUserName.requestFocus();
+            return;
+        }
+        mAuth.createUserWithEmailAndPassword(EmailAddress, Password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //Check if all information fill in the field
+                        if (task.isSuccessful()) {
+                           //UserInformation storage: EmailAddress, PersonName;
+                            UserInformation user = new UserInformation(EmailAddress, PersonName);
 
-                    if(user.isEmailVerified()){
 
-                        // Creates a Shared Preferences file locally on the device to store whether remember me was checked or not
-//                        if(rememberMe.isChecked()){ // Is checked
-//                            SharedPreferences sharedPreferences = getSharedPreferences("remember me", MODE_PRIVATE);
-//                            SharedPreferences.Editor editor = sharedPreferences.edit();
-//                            editor.putString("remember", "true"); // Store that "remember me" is true
-//                            editor.apply(); // Send to local file
-//                        }else if(!rememberMe.isChecked()){
-//                            SharedPreferences sharedPreferences = getSharedPreferences("remember me", MODE_PRIVATE);
-//                            SharedPreferences.Editor editor = sharedPreferences.edit();
-//                            editor.putString("remember", "false"); // Store that "remember me" is false
-//                            editor.apply(); // Send to local file
-//
-//                        }
+                            FirebaseDatabase.getInstance().getReference("User")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    //Show confirmation that new account has been register
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(SignUpActivity.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                        user.sendEmailVerification();
+                                        Toast.makeText(SignUpActivity.this, "Please check your email to verify your account", Toast.LENGTH_LONG).show();
+                                        //Redirect to login menu
+                                        openLoginActivity();
+                                    }
+                                    //Show error
+                                    else {
+                                        Toast.makeText(SignUpActivity.this, "Failed to register! Please try again!", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                        }
+                        //Show error
+                        else {
+                            Toast.makeText(SignUpActivity.this, "Failed to register! Please try again!", Toast.LENGTH_LONG).show();
+                        }
 
-                        //Redirect to main menu
-                        Intent it = new Intent();
-                        //it.setClass(UserAuthentication.this, MainMenu.class);
-                        startActivity(it);
                     }
-                    else{
-                        user.sendEmailVerification();
-                        //Toast.makeText(UserAuthentication.this, "Please check your email to verify your account", Toast.LENGTH_LONG).show();
-                    }
-                }
-                //Show error
-                else{
-                    // Toast.makeText(UserAuthentication.this, "Failed to login! Please check your credentials", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+                });
     }
 
-    public void openLoginActivity(){
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
     }
-
-
-}
