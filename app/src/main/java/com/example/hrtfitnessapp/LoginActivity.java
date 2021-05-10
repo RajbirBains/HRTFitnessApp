@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button signIn;
     private FirebaseAuth mAuth;
     private Button signUpButton;
+    private Button ResetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,14 @@ public class LoginActivity extends AppCompatActivity {
                 signInUser();
             }
         });
+
+        ResetButton = findViewById(R.id.ResetPassword);
+        ResetButton.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OpenResetPage();
+            }
+        }));
     }
 
     //Method use for user to sign into their account
@@ -135,5 +144,9 @@ public class LoginActivity extends AppCompatActivity {
     public void OpenSignUpActivity(){
         Intent intent1 = new Intent(this,SignUpActivity.class);
         startActivity(intent1);
+    }
+    public void OpenResetPage(){
+        Intent intent = new Intent(this, ResetActivity.class);
+        startActivity(intent);
     }
 }
