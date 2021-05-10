@@ -22,16 +22,6 @@ public class SurveyQuestion1 extends AppCompatActivity {
 
         chipGroup = findViewById(R.id.surv1ChipGroup);
 
-        chipGroup.setSelectionRequired(true);
-        chipGroup.setSingleSelection(true);
-        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(ChipGroup group, int checkedId) {
-
-            }
-        });
-
-
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override

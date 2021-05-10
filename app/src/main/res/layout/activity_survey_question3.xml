@@ -84,6 +84,7 @@
         android:layout_marginBottom="213dp"
         app:chipSpacingVertical="45dp"
         app:selectionRequired="true"
+        app:singleSelection="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -95,19 +96,25 @@
             android:id="@+id/chip4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/survey_question_3a" />
+            android:text="@string/survey_question_3a"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/survey_question_3b" />
+            android:text="@string/survey_question_3b"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/survey_question_3c" />
+            android:text="@string/survey_question_3c"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            />
 
 
     </com.google.android.material.chip.ChipGroup>
