@@ -61,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
         final String EmailAddress = editTextEmail.getText().toString().trim();
         String Password = editTextPassword.getText().toString().trim();
         final String PersonName = editTextUserName.getText().toString().trim();
+        String ConfirmPassword = editTextConfirmPassword.getText().toString().trim();
 
         //Check for email input
         if (EmailAddress.isEmpty()) {
@@ -94,6 +95,13 @@ public class SignUpActivity extends AppCompatActivity {
         if (PersonName.isEmpty()) {
             editTextUserName.setError("Username is required");
             editTextUserName.requestFocus();
+            return;
+        }
+
+        //Check if passwords match
+        if(!Password.equals(ConfirmPassword)){
+            editTextConfirmPassword.setError("Passwords do not match!");
+            editTextConfirmPassword.requestFocus();
             return;
         }
 
