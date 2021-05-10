@@ -96,6 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
             editTextUserName.requestFocus();
             return;
         }
+
         mAuth.createUserWithEmailAndPassword(EmailAddress, Password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
