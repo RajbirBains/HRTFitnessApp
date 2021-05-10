@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.chip.ChipGroup;
+
 public class SurveyQuestion4 extends AppCompatActivity {
     private Button finishButton, prevButton;
+    private Boolean hasClickedOne;
+    private ChipGroup chipGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,12 +21,26 @@ public class SurveyQuestion4 extends AppCompatActivity {
         finishButton = findViewById(R.id.btnFinishSurv);
         prevButton = findViewById(R.id.btnPrevQ4);
 
+        hasClickedOne = false;
+
+        chipGroup = findViewById(R.id.surv1ChipGroupQ4);
+
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                hasClickedOne = true;
+            }
+        });
+
+
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent itNext = new Intent();
-                itNext.setClass(SurveyQuestion4.this, PostSurvey.class);
-                startActivity(itNext);
+                if(hasClickedOne){
+                    Intent itNext = new Intent();
+                    itNext.setClass(SurveyQuestion4.this, PostSurvey.class);
+                    startActivity(itNext);
+                }
             }
         });
 

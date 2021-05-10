@@ -74,6 +74,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.ChipGroup
+        android:id="@+id/surv1ChipGroupQ3"
         android:layout_width="153dp"
         android:layout_height="305dp"
         android:layout_marginStart="129dp"

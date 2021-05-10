@@ -25,7 +25,7 @@
         tools:text="@string/post_survey" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnGotoApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
