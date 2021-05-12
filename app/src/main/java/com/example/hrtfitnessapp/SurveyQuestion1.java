@@ -12,23 +12,35 @@ import com.google.android.material.chip.ChipGroup;
 public class SurveyQuestion1 extends AppCompatActivity {
     private Button nextButton, prevButton;
     private ChipGroup chipGroup;
+    private Boolean hasClickedOne;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_question1);
 
+        hasClickedOne = false;
+
         nextButton = findViewById(R.id.btnNextQ1);
         prevButton = findViewById(R.id.btnPrevQ1);
 
-        chipGroup = findViewById(R.id.surv1ChipGroup);
+        chipGroup = findViewById(R.id.surv1ChipGroupQ1);
+
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                hasClickedOne = true;
+            }
+        });
 
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent itNext = new Intent();
-                itNext.setClass(SurveyQuestion1.this, SurveyQuestion2.class);
-                startActivity(itNext);
+                if(hasClickedOne){
+                    Intent itNext = new Intent();
+                    itNext.setClass(SurveyQuestion1.this, SurveyQuestion2.class);
+                    startActivity(itNext);
+                }
             }
         });
 

@@ -48,6 +48,7 @@
         android:layout_marginEnd="147dp"
         android:layout_marginRight="147dp"
         android:layout_marginBottom="665dp"
+        android:fontFamily="@font/inconsolata"
         android:text="@string/survey_question_4_header"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -66,14 +67,18 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="560dp"
+        android:fontFamily="@font/inconsolata"
         android:text="@string/survey_question_4"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.chip.ChipGroup
+        android:id="@+id/surv1ChipGroupQ4"
         android:layout_width="191dp"
         android:layout_height="299dp"
         android:layout_marginStart="110dp"
