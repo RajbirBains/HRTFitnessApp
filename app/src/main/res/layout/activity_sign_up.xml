@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/hrtfitness"
     tools:context=".SignUpActivity">
 
 
     <Button
         android:id="@+id/SignUpButton"
-        android:layout_width="111dp"
-        android:layout_height="55dp"
+        android:layout_width="202dp"
+        android:layout_height="51dp"
         android:layout_marginStart="150dp"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="474dp"
@@ -18,10 +19,13 @@
         android:layout_marginRight="150dp"
         android:layout_marginBottom="202dp"
         android:text="Sign Up"
+        app:backgroundTint="#878787"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/EmailAddress"
@@ -36,7 +40,8 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textSize="30dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +60,8 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textSize="30dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +80,8 @@
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        android:textSize="30dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +100,8 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        android:textSize="30dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
