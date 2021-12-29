@@ -3,23 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_athletics">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_athletics"
         android:name="com.example.hrtfitnessapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_Athletics"
         tools:layout="@layout/nav_screen_fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_bbuilding"
         android:name="com.example.hrtfitnessapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_BBuilding"
         tools:layout="@layout/nav_fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_powerlifting"
         android:name="com.example.hrtfitnessapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_PowerLifting"
         tools:layout="@layout/nav_screen_fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_tracker"
+        android:name="com.example.hrtfitnessapp.ui.Tracker.TrackerFragment"
+        android:label="@string/menu_Tracker" />
 </navigation>

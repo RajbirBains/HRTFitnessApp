@@ -29,9 +29,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_Athletics">Athletics</string>
+    <string name="menu_BBuilding">Body Building</string>
+    <string name="menu_PowerLifting">Powerlifing</string>
+    <string name="menu_Tracker">Progress Tracker</string>
 
     <string name="survey_description1">This survey will give us a better understanding of your character and lifestyle</string>
     <string name="survey_description2">With this we will recommend training routines that might fit you the best</string>
@@ -65,5 +66,7 @@
 
     <string name="survey_next_button"> Next</string>
     <string name="survey_prev_button"> Prev</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.hrtfitnessapp.ui.home;
+package com.example.hrtfitnessapp.ui.Tracker;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,18 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.hrtfitnessapp.R;
 
-public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+public class TrackerFragment extends Fragment {
+
+    private TrackerViewModel trackerViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.nav_screen_fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home_workout_counter);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        trackerViewModel =
+                new ViewModelProvider(this).get(TrackerViewModel.class);
+        View root = inflater.inflate(R.layout.nav_fragment_tracker, container, false);
+        final TextView textView = root.findViewById(R.id.text_tracker);
+        trackerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
@@ -33,3 +34,4 @@ public class HomeFragment extends Fragment {
         return root;
     }
 }
+

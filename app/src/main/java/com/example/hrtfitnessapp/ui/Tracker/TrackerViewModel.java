@@ -1,16 +1,16 @@
-package com.example.hrtfitnessapp.ui.home;
+package com.example.hrtfitnessapp.ui.Tracker;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class TrackerViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public TrackerViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Have you worked out today?");
+        mText.setValue("This is tracker fragment");
     }
 
     public LiveData<String> getText() {
