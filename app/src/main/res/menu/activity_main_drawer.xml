@@ -5,19 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_Athletics"
+            android:id="@+id/nav_athletics"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_Athletics" />
         <item
-            android:id="@+id/nav_BBuilding"
+            android:id="@+id/nav_bbuilding"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_BBuilding" />
         <item
-            android:id="@+id/nav_PowerLifting"
+            android:id="@+id/nav_powerlifting"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_PowerLifting" />
         <item
-            android:id="@+id/nav_Tracker"
+            android:id="@+id/nav_tracker"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_Tracker" />
     </group>

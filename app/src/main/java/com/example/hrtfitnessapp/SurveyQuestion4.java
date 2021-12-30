@@ -9,14 +9,22 @@ import android.widget.Button;
 
 import com.google.android.material.chip.ChipGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SurveyQuestion4 extends AppCompatActivity {
     private Button finishButton, prevButton;
     private Boolean hasClickedOne;
     private ChipGroup chipGroup;
+    private DatabaseReference ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_question4);
+
 
         finishButton = findViewById(R.id.btnFinishSurv);
         prevButton = findViewById(R.id.btnPrevQ4);
@@ -40,6 +48,8 @@ public class SurveyQuestion4 extends AppCompatActivity {
                     Intent itNext = new Intent();
                     itNext.setClass(SurveyQuestion4.this, PostSurvey.class);
                     startActivity(itNext);
+                    ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    ref.child("SurveyStatus").setValue(true);
                 }
             }
         });

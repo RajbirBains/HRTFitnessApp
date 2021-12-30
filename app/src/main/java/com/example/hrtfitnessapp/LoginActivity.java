@@ -16,6 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail, editTextPassword;
@@ -23,11 +28,15 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button signUpButton;
     private Button ResetButton;
+    private DatabaseReference ref;
+    private boolean surveyCompleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        surveyCompleted = false;
 
         //Email input field
         editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
@@ -121,11 +130,30 @@ public class LoginActivity extends AppCompatActivity {
 //
 //                        }
 
-                        //Redirect to main menu
-                        //OpenSignUpActivity();
-                        Intent it = new Intent();
-                        it.setClass(LoginActivity.this, SurveyStart.class);
-                        startActivity(it);
+                        ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                surveyCompleted = (boolean) snapshot.child("SurveyStatus").getValue();
+                                System.out.println(surveyCompleted);
+                                Intent it = new Intent();
+                                if(surveyCompleted){
+                                    it.setClass(LoginActivity.this, NavScreen.class);
+                                    System.out.println("Here");
+                                }else{
+                                    it.setClass(LoginActivity.this, SurveyStart.class);
+                                    System.out.println("no");
+                                }
+                                startActivity(it);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                     }
                     else{
                         user.sendEmailVerification();
@@ -149,4 +177,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ResetActivity.class);
         startActivity(intent);
     }
+
 }
