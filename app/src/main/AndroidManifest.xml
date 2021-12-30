@@ -16,20 +16,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HRTFitnessApp">
+        android:theme="@style/Theme.HRTFitnessApp"
+        android:screenOrientation="portrait"
+        >
+
         <activity android:name=".ResetActivity"></activity>
         <activity
             android:name=".NavScreen"
             android:label="@string/title_activity_nav_screen"
             android:theme="@style/Theme.HRTFitnessApp.NoActionBar" />
-        <activity android:name=".PostSurvey" />
-        <activity android:name=".SurveyStart" />
-        <activity android:name=".SurveyQuestion4" />
-        <activity android:name=".SurveyQuestion3" />
-        <activity android:name=".SurveyQuestion2" />
-        <activity android:name=".SurveyQuestion1" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".PostSurvey" android:screenOrientation="portrait" />
+        <activity android:name=".SurveyStart" android:screenOrientation="portrait" />
+        <activity android:name=".SurveyQuestion4" android:screenOrientation="portrait" />
+        <activity android:name=".SurveyQuestion3" android:screenOrientation="portrait" />
+        <activity android:name=".SurveyQuestion2" android:screenOrientation="portrait" />
+        <activity android:name=".SurveyQuestion1" android:screenOrientation="portrait" />
+        <activity android:name=".SignUpActivity" android:screenOrientation="portrait" />
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
