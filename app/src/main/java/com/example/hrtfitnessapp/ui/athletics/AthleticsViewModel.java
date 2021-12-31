@@ -1,14 +1,14 @@
-package com.example.hrtfitnessapp.ui.home;
+package com.example.hrtfitnessapp.ui.athletics;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class AthleticsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public AthleticsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Have you worked out today?");
     }

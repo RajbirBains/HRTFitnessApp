@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.hrtfitnessapp.ui.home.HomeFragment"
+        android:name="com.example.hrtfitnessapp.ui.athletics.AthleticsFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/nav_screen_fragment_home">
+        tools:layout="@layout/nav_screen_fragment_athletics">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

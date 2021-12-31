@@ -1,4 +1,4 @@
-package com.example.hrtfitnessapp.ui.home;
+package com.example.hrtfitnessapp.ui.athletics;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.hrtfitnessapp.R;
 
-public class HomeFragment extends Fragment {
+public class AthleticsFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private AthleticsViewModel athleticsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.nav_screen_fragment_home, container, false);
+        athleticsViewModel =
+                new ViewModelProvider(this).get(AthleticsViewModel.class);
+        View root = inflater.inflate(R.layout.nav_screen_fragment_athletics, container, false);
         final TextView textView = root.findViewById(R.id.text_home_workout_counter);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        athleticsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

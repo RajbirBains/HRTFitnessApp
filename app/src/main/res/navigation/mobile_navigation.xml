@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/nav_athletics"
-        android:name="com.example.hrtfitnessapp.ui.home.HomeFragment"
+        android:name="com.example.hrtfitnessapp.ui.athletics.AthleticsFragment"
         android:label="@string/menu_Athletics"
-        tools:layout="@layout/nav_screen_fragment_home" />
+        tools:layout="@layout/nav_screen_fragment_athletics" />
 
     <fragment
         android:id="@+id/nav_bbuilding"
-        android:name="com.example.hrtfitnessapp.ui.gallery.GalleryFragment"
+        android:name="com.example.hrtfitnessapp.ui.bodybuilding.BodyBuildingFragment"
         android:label="@string/menu_BBuilding"
-        tools:layout="@layout/nav_fragment_gallery" />
+        tools:layout="@layout/nav_fragment_bodybuilding" />
 
     <fragment
         android:id="@+id/nav_powerlifting"
-        android:name="com.example.hrtfitnessapp.ui.slideshow.SlideshowFragment"
+        android:name="com.example.hrtfitnessapp.ui.powerlifting.PowerliftingFragment"
         android:label="@string/menu_PowerLifting"
-        tools:layout="@layout/nav_screen_fragment_slideshow" />
+        tools:layout="@layout/nav_screen_fragment_powerlifting" />
     <fragment
         android:id="@+id/nav_tracker"
         android:name="com.example.hrtfitnessapp.ui.Tracker.TrackerFragment"

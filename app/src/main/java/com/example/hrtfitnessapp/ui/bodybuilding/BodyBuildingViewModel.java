@@ -1,14 +1,14 @@
-package com.example.hrtfitnessapp.ui.gallery;
+package com.example.hrtfitnessapp.ui.bodybuilding;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class BodyBuildingViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public BodyBuildingViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }
