@@ -32,6 +32,9 @@
     <string name="menu_Athletics">Athletics</string>
     <string name="menu_BBuilding">Body Building</string>
     <string name="menu_PowerLifting">Powerlifing</string>
+    <string name="title_PowerLifting">POWER LIFTING</string>
+    <string name="info_PowerLifting"> The Deadlift, Squat, and Bench are some simple exercises that are considerably effective for building a strength base.</string>
+    <string name="info_PowerLifting2">Ideally one should perform these movements 2-3 times per week for 5 sets of 5 reps at a weight that is of high intensity. However, Your focus should be on coordination and execution of the lift before adding additional weight in order to prevent major injuries.</string>
     <string name="menu_Tracker">Progress Tracker</string>
 
     <string name="survey_description1">This survey will give us a better understanding of your character and lifestyle</string>

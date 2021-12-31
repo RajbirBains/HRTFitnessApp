@@ -23,7 +23,7 @@ public class PowerliftingFragment extends Fragment {
         powerliftingViewModel =
                 new ViewModelProvider(this).get(PowerliftingViewModel.class);
         View root = inflater.inflate(R.layout.nav_screen_fragment_powerlifting, container, false);
-        final TextView textView = root.findViewById(R.id.text_powerlifting);
+        final TextView textView = root.findViewById(R.id.text_powerlifting1);
         powerliftingViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
