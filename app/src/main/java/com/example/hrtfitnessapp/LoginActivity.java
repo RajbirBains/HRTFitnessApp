@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button signUpButton;
     private Button ResetButton;
+    private CheckBox rememberMe;
     private DatabaseReference ref;
     private boolean surveyCompleted;
 
@@ -37,6 +40,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         surveyCompleted = false;
+
+        //remember me checkbox
+        rememberMe = findViewById(R.id.checkbox);
 
         //Email input field
         editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
@@ -72,9 +78,43 @@ public class LoginActivity extends AppCompatActivity {
                 OpenResetPage();
             }
         }));
+
+        ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                surveyCompleted = (boolean) snapshot.child("SurveyStatus").getValue();
+                System.out.println(surveyCompleted);
+                Intent it = new Intent();
+                SharedPreferences checkRememberMe = getSharedPreferences("Remember Me", MODE_PRIVATE);
+                String compare = checkRememberMe.getString("Remember","");
+
+                if(surveyCompleted && compare.equals("true")){
+                        it.setClass(LoginActivity.this, NavScreen.class);
+                        startActivity(it);
+                        System.out.println("Here");
+                }
+
+                else if(!surveyCompleted && compare.equals("true")){
+                    it.setClass(LoginActivity.this, SurveyStart.class);
+                    startActivity(it);
+                    System.out.println("no");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
+
+
     //Method use for user to sign into their account
+
     private void signInUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -117,36 +157,36 @@ public class LoginActivity extends AppCompatActivity {
                     if(user.isEmailVerified()){
 
                         // Creates a Shared Preferences file locally on the device to store whether remember me was checked or not
-//                        if(rememberMe.isChecked()){ // Is checked
-//                            SharedPreferences sharedPreferences = getSharedPreferences("remember me", MODE_PRIVATE);
-//                            SharedPreferences.Editor editor = sharedPreferences.edit();
-//                            editor.putString("remember", "true"); // Store that "remember me" is true
-//                            editor.apply(); // Send to local file
-//                        }else if(!rememberMe.isChecked()){
-//                            SharedPreferences sharedPreferences = getSharedPreferences("remember me", MODE_PRIVATE);
-//                            SharedPreferences.Editor editor = sharedPreferences.edit();
-//                            editor.putString("remember", "false"); // Store that "remember me" is false
-//                            editor.apply(); // Send to local file
-//
-//                        }
+                        if(rememberMe.isChecked()){ // Is checked
+                            SharedPreferences sharedPreferences = getSharedPreferences("Remember Me", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("Remember", "true"); // Store that "remember me" is true
+                            editor.apply(); // Send to local file
+                        }else if(!rememberMe.isChecked()){
+                            SharedPreferences sharedPreferences = getSharedPreferences("Remember Me", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("Remember", "false"); // Store that "remember me" is false
+                            editor.apply(); // Send to local file
+
+                        }
 
                         ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                         ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                surveyCompleted = (boolean) snapshot.child("SurveyStatus").getValue();
-                                System.out.println(surveyCompleted);
-                                Intent it = new Intent();
-                                if(surveyCompleted){
-                                    it.setClass(LoginActivity.this, NavScreen.class);
-                                    System.out.println("Here");
-                                }else{
-                                    it.setClass(LoginActivity.this, SurveyStart.class);
-                                    System.out.println("no");
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    surveyCompleted = (boolean) snapshot.child("SurveyStatus").getValue();
+                                    System.out.println(surveyCompleted);
+                                    Intent it = new Intent();
+                                    if(surveyCompleted){
+                                        it.setClass(LoginActivity.this, NavScreen.class);
+                                        System.out.println("Here");
+                                    }else{
+                                        it.setClass(LoginActivity.this, SurveyStart.class);
+                                        System.out.println("no");
+                                    }
+                                    startActivity(it);
                                 }
-                                startActivity(it);
-                            }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
