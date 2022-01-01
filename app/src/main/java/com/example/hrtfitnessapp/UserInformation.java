@@ -3,8 +3,9 @@ package com.example.hrtfitnessapp;
 import javax.xml.namespace.QName;
 
 public class UserInformation {
-    public String EmailAddress, PersonName;
+    public String EmailAddress, PersonName, Height, Weight;
     public Boolean SurveyStatus;
+
 
     public UserInformation(){
 
@@ -14,5 +15,6 @@ public class UserInformation {
         this.EmailAddress = EmailAddress;
         this.PersonName = PersonName;
         this.SurveyStatus = Boolean.FALSE;
+
     }
 }

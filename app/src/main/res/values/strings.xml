@@ -30,7 +30,13 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_Athletics">Athletics</string>
+    <string name="info_Athletics">As an athlete your training is heavily dependent on your goals this can include speed and explosiveness or endurance training.</string>
+    <string name="info_Athletics2">If you are more focused on strength and explosiveness plyometrics, core work and High Intensity Interval cardio are some solid options. However, if you are more concerned with building endurance the training should consist of long cardio sessions and progressively overloading the distance travelled and keeping track of nutrition and hydration during these sessions as well as static stretches to prevent injuries and stay durable. </string>
     <string name="menu_BBuilding">Body Building</string>
+    <string name="info_BBuilding">Weight training and proper nutrition benefit mental sharpness. Working on your body and mind will serve you for years to come.
+Like powerlifting bpdybuilding offers exercises which will make you stronger and more energetic.</string>
+    <string name="info_BBuilding2">For bodybuilding the focus should be more so on higher volume and more reps rather than lifting a heavier load. However, this doesn\'t mean that there should be a low intensity either.
+    Strive to pick a weight that can be done for a rep range of 8-12 for hypertrophy and also incorporate more isolation exercises in your program. </string>
     <string name="menu_PowerLifting">Powerlifing</string>
     <string name="title_PowerLifting">POWER LIFTING</string>
     <string name="info_PowerLifting"> The Deadlift, Squat, and Bench are some simple exercises that are considerably effective for building a strength base.</string>
