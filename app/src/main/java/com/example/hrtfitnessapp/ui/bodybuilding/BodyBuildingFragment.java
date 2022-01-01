@@ -23,7 +23,7 @@ public class BodyBuildingFragment extends Fragment {
         bodyBuildingViewModel =
                 new ViewModelProvider(this).get(BodyBuildingViewModel.class);
         View root = inflater.inflate(R.layout.nav_fragment_bodybuilding, container, false);
-        final TextView textView = root.findViewById(R.id.text_bodybuilding);
+        final TextView textView = root.findViewById(R.id.text_bodybuilding0);
         bodyBuildingViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
