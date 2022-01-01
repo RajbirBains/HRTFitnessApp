@@ -25,4 +25,8 @@ public class SurveyStart extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }
