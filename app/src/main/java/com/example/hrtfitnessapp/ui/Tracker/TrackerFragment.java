@@ -13,11 +13,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.hrtfitnessapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class TrackerFragment extends Fragment {
 
     private TrackerViewModel trackerViewModel;
+    private DatabaseReference ref;
+    private DatabaseReference liftsAndMacros;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +36,11 @@ public class TrackerFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        liftsAndMacros = ref.child("Tracker");
+
+
         return root;
     }
 }

@@ -3,7 +3,7 @@ package com.example.hrtfitnessapp;
 import javax.xml.namespace.QName;
 
 public class UserInformation {
-    public String EmailAddress, PersonName, Height, Weight;
+    public String EmailAddress, PersonName;
     public Boolean SurveyStatus;
 
 
