@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/protein"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.496" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned4"
+        android:id="@+id/deadlift"
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_marginTop="227dp"
@@ -77,7 +77,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned3"
+        android:id="@+id/squat"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="350dp"
@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.451" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned6"
+        android:id="@+id/bench"
         android:layout_width="51dp"
         android:layout_height="47dp"
         android:ems="10"
@@ -153,7 +153,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/tracker_savebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -185,7 +185,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned5"
+        android:id="@+id/carbs"
         android:layout_width="52dp"
         android:layout_height="43dp"
         android:layout_marginStart="139dp"
@@ -219,7 +219,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned"
+        android:id="@+id/fat"
         android:layout_width="53dp"
         android:layout_height="41dp"
         android:layout_marginStart="139dp"
