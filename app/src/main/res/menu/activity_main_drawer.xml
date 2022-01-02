@@ -20,16 +20,19 @@
             android:id="@+id/nav_tracker"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_Tracker" />
+
+        <item android:title="Other">
+            <menu>
+                <item android:id="@+id/menu_settings"
+                    android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
+                    android:title="Settings"/>
+
+                <item android:id="@+id/menu_signout_t"
+                    android:icon="@drawable/common_google_signin_btn_icon_dark"
+                    android:title="Sign Out"/>
+            </menu>
+        </item>
     </group>
 
-    <item android:title="Other">
-        <menu>
-            <item android:id="@+id/menu_settings"
-                android:icon="@drawable/common_google_signin_btn_icon_dark_normal_background"
-                android:title="Settings"/>
-            <item android:id="@+id/menu_signout"
-                android:icon="@drawable/common_google_signin_btn_icon_dark"
-                android:title="Sign Out"/>
-        </menu>
-    </item>
+
 </menu>

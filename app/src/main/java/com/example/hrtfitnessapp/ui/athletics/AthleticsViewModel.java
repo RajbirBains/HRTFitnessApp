@@ -10,7 +10,7 @@ public class AthleticsViewModel extends ViewModel {
 
     public AthleticsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Have you worked out today?");
+        //mText.setValue("Have you worked out today?");
     }
 
     public LiveData<String> getText() {
