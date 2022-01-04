@@ -79,34 +79,39 @@ public class LoginActivity extends AppCompatActivity {
             }
         }));
 
-        ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                surveyCompleted = (boolean) snapshot.child("SurveyStatus").getValue();
-                System.out.println(surveyCompleted);
-                Intent it = new Intent();
-                SharedPreferences checkRememberMe = getSharedPreferences("Remember Me", MODE_PRIVATE);
-                String compare = checkRememberMe.getString("Remember","");
+        try{
+            ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    surveyCompleted = (boolean) snapshot.child("SurveyStatus").getValue();
+                    System.out.println(surveyCompleted);
+                    Intent it = new Intent();
+                    SharedPreferences checkRememberMe = getSharedPreferences("Remember Me", MODE_PRIVATE);
+                    String compare = checkRememberMe.getString("Remember","");
 
-                if(surveyCompleted && compare.equals("true")){
+                    if(surveyCompleted && compare.equals("true")){
                         it.setClass(LoginActivity.this, NavScreen.class);
                         startActivity(it);
                         System.out.println("Here");
+                    }
+
+                    else if(!surveyCompleted && compare.equals("true")){
+                        it.setClass(LoginActivity.this, SurveyStart.class);
+                        startActivity(it);
+                        System.out.println("no");
+                    }
                 }
 
-                else if(!surveyCompleted && compare.equals("true")){
-                    it.setClass(LoginActivity.this, SurveyStart.class);
-                    startActivity(it);
-                    System.out.println("no");
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
                 }
-            }
+            });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        }catch(Exception e){
+        }
 
-            }
-        });
 
 
     }

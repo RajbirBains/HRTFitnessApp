@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class TrackerFragment extends Fragment {
 
@@ -46,9 +47,6 @@ public class TrackerFragment extends Fragment {
 
 
 
-
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         trackerViewModel =
@@ -62,14 +60,9 @@ public class TrackerFragment extends Fragment {
             }
         });
 
+        save =  (Button)root.findViewById(R.id.tracker_savebutton);
+        reset_button = (Button)root.findViewById(R.id.reset_button);
 
-        ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        liftsAndMacros = ref.child("Tracker");
-
-        // conditions for tracker:
-        // check if theres a tracker child meaning that they have inputted a value before
-        // check if any of the values are null or not (has to be populated ) as there can be a tracker child if we just inputted 1/6 values
-        // if value previously filled then just get the value from database
         input0 = root.findViewById(R.id.squat);
         input1 = root.findViewById(R.id.bench);
         input2 = root.findViewById(R.id.deadlift);
@@ -77,7 +70,11 @@ public class TrackerFragment extends Fragment {
         input4 = root.findViewById(R.id.carbs);
         input5 = root.findViewById(R.id.protein);
 
-         ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        try{
+            ref = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            liftsAndMacros = ref.child("Tracker");
+
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     //get values from database
@@ -96,13 +93,16 @@ public class TrackerFragment extends Fragment {
                     System.out.println(e);
                     System.out.println(f);
 
-                    //now we write to the fields
-                    input0.setText(a.toString());
-                    input1.setText(b.toString());
-                    input2.setText(c.toString());
-                    input3.setText(d.toString());
-                    input4.setText(e.toString());
-                    input5.setText(f.toString());
+                    if(a != null){
+                        //now we write to the fields
+                        input0.setText(a.toString());
+                        input1.setText(b.toString());
+                        input2.setText(c.toString());
+                        input3.setText(d.toString());
+                        input4.setText(e.toString());
+                        input5.setText(f.toString());
+                    }
+
 
                 }
 
@@ -110,15 +110,14 @@ public class TrackerFragment extends Fragment {
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-         });
-
-        try{
-            save =  (Button)root.findViewById(R.id.tracker_savebutton);
+            });
 
         }catch (Exception e){
-            System.out.println("idk bro");
+            Toast.makeText(getActivity(),"Cannot get tracker info", Toast.LENGTH_LONG).show();
+
         }
-//        save =  (Button) t.findViewById(R.id.tracker_savebutton);
+
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,12 +130,6 @@ public class TrackerFragment extends Fragment {
             }
         });
 
-        try{
-            reset_button = (Button)root.findViewById(R.id.reset_button);
-
-        }catch (Exception e){
-            System.out.println("Hey Friend");
-        }
         reset_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
