@@ -93,13 +93,11 @@ public class LoginActivity extends AppCompatActivity {
                     if(surveyCompleted && compare.equals("true")){
                         it.setClass(LoginActivity.this, NavScreen.class);
                         startActivity(it);
-                        System.out.println("Here");
                     }
 
                     else if(!surveyCompleted && compare.equals("true")){
                         it.setClass(LoginActivity.this, SurveyStart.class);
                         startActivity(it);
-                        System.out.println("no");
                     }
                 }
 

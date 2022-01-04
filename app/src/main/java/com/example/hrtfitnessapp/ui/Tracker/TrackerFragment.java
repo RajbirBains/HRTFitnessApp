@@ -102,8 +102,6 @@ public class TrackerFragment extends Fragment {
                         input4.setText(e.toString());
                         input5.setText(f.toString());
                     }
-
-
                 }
 
                 @Override
@@ -147,7 +145,6 @@ public class TrackerFragment extends Fragment {
                 input5.setText("0");
             }
         });
-
 
         return root;
     }
