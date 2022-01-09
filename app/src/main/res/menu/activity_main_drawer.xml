@@ -23,10 +23,6 @@
 
         <item android:title="Other">
             <menu>
-                <item android:id="@+id/menu_settings"
-                    android:icon="@drawable/ic_baseline_settings_24"
-                    android:title="Settings"/>
-
                 <item android:id="@+id/menu_signout_t"
                     android:icon="@drawable/common_google_signin_btn_icon_dark"
                     android:title="Sign Out"/>
