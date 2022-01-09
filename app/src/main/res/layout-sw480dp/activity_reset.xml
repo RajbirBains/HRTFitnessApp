@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/EmailToReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="61dp"
         android:layout_marginStart="91dp"
         android:layout_marginLeft="91dp"
         android:layout_marginTop="328dp"
@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="376dp"
-        android:layout_height="178dp"
+        android:layout_width="430dp"
+        android:layout_height="220dp"
         android:layout_marginStart="17dp"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="71dp"
@@ -36,16 +36,18 @@
         android:layout_marginBottom="482dp"
         android:fontFamily="@font/inconsolata"
         android:text="Please enter your Email to reset your Password. A verification email will be sent shortly after."
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
 
     <Button
         android:id="@+id/resetbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="153dp"
+        android:layout_height="71dp"
         android:layout_marginStart="148dp"
         android:layout_marginLeft="148dp"
         android:layout_marginTop="448dp"
@@ -53,15 +55,18 @@
         android:layout_marginRight="157dp"
         android:layout_marginBottom="311dp"
         android:text="Reset"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
 
     <Button
         android:id="@+id/returnlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="62dp"
         android:layout_marginStart="148dp"
         android:layout_marginLeft="148dp"
         android:layout_marginTop="526dp"
@@ -69,10 +74,11 @@
         android:layout_marginRight="153dp"
         android:layout_marginBottom="233dp"
         android:text="Return"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
+        app:layout_constraintVertical_bias="0.827" />
 </androidx.constraintlayout.widget.ConstraintLayout>
